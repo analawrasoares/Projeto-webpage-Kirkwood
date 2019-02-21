@@ -67,3 +67,30 @@ CREATE TABLE state
 	state_id              INT            PRIMARY KEY      AUTO_INCREMENT
     , state_name          VARCHAR(50)    NOT NULL
 );
+
+-- create a function able
+CREATE TABLE admin_info
+(
+	k_number              INT            NOT NULL
+    , email               VARCHAR(50)    NOT NULL
+    , first_name          VARCHAR(25)    NOT NULL
+    , last_name           VARCHAR(25)    NOT NULL
+    , password_key        VARCHAR(25)    NOT NULL
+    , admin_id            INT            PRIMARY KEY      AUTO_INCREMENT
+);
+
+-- create a function table
+
+CREATE TABLE admin_function
+(
+	function_name       VARCHAR(25)    NOT NULL
+    , k_number            INT            NOT NULL
+);
+
+-- create a table containing all function
+CREATE TABLE all_function
+(
+	function_name          VARCHAR(25)    PRIMARY KEY
+);
+
+
