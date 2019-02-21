@@ -1,3 +1,12 @@
+/*
+	FILE: create_graduate_db.sql
+    DATE: 2019-02-20 (ISO-861 format)
+    AUTHOR: Md Touhidul islam & Ana lura
+	DESCRIPTION: 
+		This script going to create graduage database.
+*/
+
+
 -- Create database graduate
 CREATE DATABASE graduate;
 
