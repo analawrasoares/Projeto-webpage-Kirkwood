@@ -1,3 +1,8 @@
+/* 	Author: Malek Ben Khalifa
+	Date:02-23-2019
+	Description: JavaScript code for Graduate_form.html page
+	File name: graduate_form.js
+*/
 function year() {
 
 	var start=1966;
