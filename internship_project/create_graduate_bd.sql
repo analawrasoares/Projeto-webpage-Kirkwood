@@ -76,6 +76,8 @@ CREATE TABLE Form (
                 submission_date DATE NOT NULL,
                 submitted TINYINT NOT NULL,
                 program_name VARCHAR(50) NOT NULL,
+                employer_name VARCHAR(50) NOT NULL,
+                continue_edu bool NOT NULL,
                 PRIMARY KEY (form_id)
 );
 
