@@ -3,7 +3,7 @@
     DATE: 2019-02-20 (ISO-861 format)
     AUTHOR: Md Touhidul islam & Ana lura
 	DESCRIPTION: 
-		This script going to create graduage database.
+		This script going to creat graduage database.
 */
 CREATE database Kirkwood_Survay;
 use Kirkwood_Survay;
