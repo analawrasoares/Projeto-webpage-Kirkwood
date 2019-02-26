@@ -3,33 +3,34 @@
     DATE: 2019-02-20 (ISO-861 format)
     AUTHOR: Md Touhidul islam & Ana lura
 	DESCRIPTION: 
-		This script going to create graduage database.
+		This script going to creat graduage database.
 */
+CREATE database Kirkwood_Survay;
+use Kirkwood_Survay;
 
-
-CREATE TABLE Function (
-                function_id INT AUTO_INCREMENT NOT NULL,
-                function_name VARCHAR(25) NOT NULL,
-                PRIMARY KEY (function_id)
+CREATE TABLE Duty (
+                Duty_id INT AUTO_INCREMENT NOT NULL,
+                Duty_name VARCHAR(25) NOT NULL,
+                PRIMARY KEY (Duty_id)
 );
 
 
-CREATE TABLE Admin (
-                admin_id INT AUTO_INCREMENT NOT NULL,
+CREATE TABLE Stuff (
+                Stuff_id INT AUTO_INCREMENT NOT NULL,
                 k_number VARCHAR(10) NOT NULL,
                 email VARCHAR(50) NOT NULL,
                 first_name VARCHAR(50) NOT NULL,
                 last_name VARCHAR(50) NOT NULL,
                 password_key VARCHAR(25) NOT NULL,
-                PRIMARY KEY (admin_id)
+                PRIMARY KEY (Stuff_id)
 );
 
 
-CREATE TABLE Admin_Func (
-                admin_func_id INT AUTO_INCREMENT NOT NULL,
-                admin_id INT NOT NULL,
-                function_id INT NOT NULL,
-                PRIMARY KEY (admin_func_id)
+CREATE TABLE Stuff_Duty (
+                Stuff_func_id INT AUTO_INCREMENT NOT NULL,
+                Stuff_id INT NOT NULL,
+                Duty_id INT NOT NULL,
+                PRIMARY KEY (Stuff_func_id)
 );
 
 
@@ -66,7 +67,7 @@ CREATE TABLE Graduate (
 
 CREATE TABLE Form (
                 form_id INT AUTO_INCREMENT NOT NULL,
-                graduate_id INT AUTO_INCREMENT NOT NULL,
+                graduate_id INT NOT NULL,
                 graduate_year INT NOT NULL,
                 graduate TINYINT NOT NULL,
                 salary DOUBLE PRECISION NOT NULL,
@@ -75,6 +76,8 @@ CREATE TABLE Form (
                 submission_date DATE NOT NULL,
                 submitted TINYINT NOT NULL,
                 program_name VARCHAR(50) NOT NULL,
+                employer_name VARCHAR(50) NOT NULL,
+                continue_edu bool NOT NULL,
                 PRIMARY KEY (form_id)
 );
 
@@ -92,15 +95,15 @@ CREATE TABLE Location (
 );
 
 
-ALTER TABLE Admin_Func ADD CONSTRAINT function_admin_func_fk
-FOREIGN KEY (function_id)
-REFERENCES Function (function_id)
+ALTER TABLE Stuff_Duty ADD CONSTRAINT Duty_fk
+FOREIGN KEY (Duty_id)
+REFERENCES Duty (Duty_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE Admin_Func ADD CONSTRAINT admin_admin_func_fk
-FOREIGN KEY (admin_id)
-REFERENCES Admin (admin_id)
+ALTER TABLE Stuff_Duty ADD CONSTRAINT Stuff_fk
+FOREIGN KEY (Stuff_id)
+REFERENCES Stuff (Stuff_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
