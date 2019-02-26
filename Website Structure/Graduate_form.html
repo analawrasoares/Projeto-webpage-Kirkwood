@@ -12,7 +12,7 @@
 	<h2>Hello Kirkwood graduates</h2>
 	<h3>Survey</h3>
 
-	<form method="" action=""><!--To Complete by the PHP builder-->
+	<form method="POST" action="php/create_account.php"><!--To Complete by the PHP builder-->
 		<p>Please provide the following informations</p>
 
 		<label>Primary Program</label><!--Porgram_id options-->
@@ -38,8 +38,8 @@
 		<br>
 		<label>Continuing Education</label><!--Continuing Education options-->
 		<br>
-		<p><input type="radio" name="continue_edu"><b>Yes</b>, I have continued my education since I left Kirkwood.</p>
-		<p><input type="radio" name="continue_edu" checked=""><b>No</b>, I have continued my education since I left Kirkwood.</p>
+		<p><input type="radio" value="true"name="continue_edu"><b>Yes</b>, I have continued my education since I left Kirkwood.</p>
+		<p><input type="radio" value="false"name="continue_edu" checked=""><b>No</b>, I have continued my education since I left Kirkwood.</p>
 		<br>
 
 		<label>Employment Position</label><!--Employment Position-->	
@@ -316,6 +316,6 @@
 	<div id="location"><!--graduates city&zip-->
 		
 	</div>
-	<input type="submit" name="">
+	<input type="submit" name="submit">
 </body>
 </html>
