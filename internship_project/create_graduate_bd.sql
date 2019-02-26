@@ -90,7 +90,7 @@ CREATE TABLE Location (
                 address1 VARCHAR(100),
                 address2 VARCHAR(100),
                 state_name VARCHAR(50) NOT NULL,
-                country_code VARCHAR(3) NOT NULL,
+                country_code VARCHAR(3),
                 PRIMARY KEY (location_id)
 );
 
