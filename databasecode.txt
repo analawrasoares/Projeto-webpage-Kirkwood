@@ -15,7 +15,7 @@ CREATE TABLE Staff (
 );
 
 
-CREATE TABLE Admin_Func (
+CREATE TABLE Staff_Duty (
                 k_number VARCHAR(10) NOT NULL,
                 duty_name VARCHAR(25) NOT NULL,
                 PRIMARY KEY (k_number, duty_name)
@@ -78,13 +78,13 @@ CREATE TABLE Location (
 );
 
 
-ALTER TABLE Admin_Func ADD CONSTRAINT function_admin_func_fk
+ALTER TABLE Staff_Duty ADD CONSTRAINT duty_name_fk
 FOREIGN KEY (duty_name)
 REFERENCES Duty (duty_name)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE Admin_Func ADD CONSTRAINT admin_admin_func_fk
+ALTER TABLE Staff_Duty ADD CONSTRAINT k_number_fk
 FOREIGN KEY (k_number)
 REFERENCES Staff (k_number)
 ON DELETE NO ACTION
