@@ -16,7 +16,7 @@ CREATE TABLE Duty (
 
 
 CREATE TABLE Staff (
-                k_number VARCHAR(10) NOT NULL,
+                k_number VARCHAR(8) NOT NULL,
                 email VARCHAR(50) NOT NULL,
                 first_name VARCHAR(50) NOT NULL,
                 last_name VARCHAR(50) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE Staff (
 
 
 CREATE TABLE Staff_Duty (
-                k_number VARCHAR(10) NOT NULL,
+                k_number VARCHAR(8) NOT NULL,
                 duty_name VARCHAR(25) NOT NULL,
                 PRIMARY KEY (k_number, duty_name)
 );
@@ -54,7 +54,7 @@ CREATE TABLE Program (
 CREATE TABLE Graduate (
                 graduate_id INT AUTO_INCREMENT NOT NULL,
                 form_id INT NOT NULL,
-                k_number VARCHAR(10) NOT NULL,
+                k_number VARCHAR(8) NOT NULL,
                 first_name VARCHAR(25) NOT NULL,
                 middle_name VARCHAR(25) NOT NULL,
                 last_name VARCHAR(25) NOT NULL,
@@ -67,22 +67,33 @@ CREATE TABLE Form (
                 form_id INT AUTO_INCREMENT NOT NULL,
                 graduate_id INT NOT NULL,
                 graduate_year VARCHAR(4) NOT NULL,
-                salary DOUBLE PRECISION,
+                salary-range VARCHAR(15), 
                 employment_position VARCHAR(60),
                 location_id INT NOT NULL,
                 submission_date DATE NOT NULL,
                 program_name VARCHAR(50) NOT NULL,
                 employer_name VARCHAR(50),
                 continue_edu bool NOT NULL,
+                have_job bool NOT NULL,
                 PRIMARY KEY (form_id)
 );
+/*
+salary-range should be string because it is a select structure with specified available salary ranges.
+0-30,000
+30,000-40,000
+40,000-65,000
+75,000-85,000
+85,000-95,000
+95,000-100,000
+Over 100,000
+
+*/
 
 
 CREATE TABLE Location (
                 location_id INT AUTO_INCREMENT NOT NULL,
-                form_id INT NOT NULL,
                 city VARCHAR(50) NOT NULL,
-                zip INT NOT NULL,
+                zip VARCHAR(5) NOT NULL,
                 state_name VARCHAR(50) NOT NULL,
                 country_code VARCHAR(3) NOT NULL,
                 PRIMARY KEY (location_id)
