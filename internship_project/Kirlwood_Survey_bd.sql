@@ -67,7 +67,7 @@ CREATE TABLE Form (
                 form_id INT AUTO_INCREMENT NOT NULL,
                 graduate_id INT NOT NULL,
                 graduate_year VARCHAR(4) NOT NULL,
-                salary-range VARCHAR(15), 
+                salary_range VARCHAR(15), 
                 employment_position VARCHAR(60),
                 location_id INT NOT NULL,
                 submission_date DATE NOT NULL,
@@ -103,7 +103,7 @@ ALTER TABLE Staff_Duty ADD CONSTRAINT duty_name_fk
 FOREIGN KEY (duty_name)
 REFERENCES Duty (duty_name)
 ON DELETE NO ACTION
-ON UPDATE NO ACTION
+ON UPDATE NO ACTION;
 
 ALTER TABLE Staff_Duty ADD CONSTRAINT k_number_fk
 FOREIGN KEY (k_number)
@@ -132,11 +132,5 @@ ON UPDATE NO ACTION;
 ALTER TABLE Form ADD CONSTRAINT graduate_id_fk
 FOREIGN KEY (graduate_id)
 REFERENCES Graduate (graduate_id)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION;
-
-ALTER TABLE Location ADD CONSTRAINT form_id_fk
-FOREIGN KEY (form_id)
-REFERENCES Form (form_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
