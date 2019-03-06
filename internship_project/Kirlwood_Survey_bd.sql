@@ -129,8 +129,11 @@ REFERENCES Program (program_name)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
+/*
 ALTER TABLE Form ADD CONSTRAINT graduate_id_fk
 FOREIGN KEY (graduate_id)
 REFERENCES Graduate (graduate_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
+
+*/
