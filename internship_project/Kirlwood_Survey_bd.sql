@@ -25,7 +25,7 @@ CREATE TABLE Staff (
 );
 
 
-CREATE TABLE Staff_Duty (
+CREATE TABLE Staff_Duty (   
                 k_number VARCHAR(8) NOT NULL,
                 duty_name VARCHAR(25) NOT NULL,
                 PRIMARY KEY (k_number, duty_name)
@@ -34,6 +34,7 @@ CREATE TABLE Staff_Duty (
 
 CREATE TABLE State (
                 state_name VARCHAR(50) NOT NULL,
+                state_code VARCHAR(3),
                 PRIMARY KEY (state_name)
 );
 
@@ -41,6 +42,7 @@ CREATE TABLE State (
 CREATE TABLE Country (
                 country_code VARCHAR(3) NOT NULL,
                 country_name VARCHAR(50) NOT NULL,
+                short_code VARCHAR(3),
                 PRIMARY KEY (country_code)
 );
 
