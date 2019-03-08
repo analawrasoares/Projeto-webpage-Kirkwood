@@ -17,11 +17,24 @@ if(isset($_POST['submit'])){
     $city = isempty(htmlspecialchars($_POST['city']));
     $zip_code = isempty(htmlspecialchars($_POST['zip_code']));
 
+<<<<<<< HEAD
     $program_name = isLetter(isempty(htmlspecialchars($_POST['program_id'])));
     $employer_name = isLetterisempty(htmlspecialchars($_POST['employer_name']));
     $continue_edu = isempty(htmlspecialchars($_POST['continue_edu']));
     $state = isempty(htmlspecialchars($_POST['states']));
     $continue_edu = isempty(htmlspecialchars($_POST['continue_edu']));
+=======
+    $program_name = htmlspecialchars($_POST['program_id']);
+    $employer_name = htmlspecialchars($_POST['employer_name']);
+    $continue_edu = htmlspecialchars($_POST['continue_edu']);
+    if(isset($_POST['states'])){
+        $state = htmlspecialchars($_POST['states']);
+    }else{
+        $state = " ";
+    }
+    
+    $continue_edu = htmlspecialchars($_POST['continue_edu']);
+>>>>>>> 887ecaef5db98a907a98e064975be04950db42ca
     //$location = $_POST['location'];
     $form_info = new form_info($graduate_year,$salary,$employment_position,$program_name,$employer_name,$continue_edu,$country,$state,$city,$zip_code);
     $form_info->insert();
