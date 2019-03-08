@@ -74,8 +74,7 @@ class form_info{
             $date = date("Ymd");
 
             $sql = "INSERT IGNORE INTO State (state_name)VALUES ('$this->state') ;";
-            $sql .= "INSERT IGNORE INTO country (country_code,country_name)VALUES (''$this->country_code'','$this->country');";
-            $sql .= "INSERT IGNORE INTO Location (city, zip, state_name , country_code)VALUES ('$this->city', '$this->zip_code', '$this->state', '$this->country_code');";
+            $sql .= "INSERT IGNORE INTO Location (city, zip, state_name , country_code)VALUES ('$this->city', '$this->zip_code', (SELECT state_name FROM state WHERE state_name = '$this->state' ), (SELECT country_code FROM country WHERE country_code = '$this->country' ));";
             $sql .= "INSERT IGNORE INTO program (program_name)VALUES ('$this->program_name');";
             
 
