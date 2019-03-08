@@ -6,21 +6,22 @@
  * Discription: 
  */
 require('form_info.php');
+require('validatioin.php');
 if(isset($_POST['submit'])){
-    $graduate_year =htmlspecialchars( $_POST['graduate_year']);
+    $graduate_year = isempty(htmlspecialchars( $_POST['graduate_year']));
 
-    $salary =htmlspecialchars( $_POST['salary']);
-    $employment_position = htmlspecialchars($_POST['employment_position']);
+    $salary = isempty(htmlspecialchars( $_POST['salary'])));
+    $employment_position = isLetter(isempty(htmlspecialchars($_POST['employment_position'])));
 
-    $country = htmlspecialchars($_POST['country']);
-    $city = htmlspecialchars($_POST['city']);
-    $zip_code = htmlspecialchars($_POST['zip_code']);
+    $country = isLetter(isempty(htmlspecialchars($_POST['country'])));
+    $city = isempty(htmlspecialchars($_POST['city']));
+    $zip_code = isempty(htmlspecialchars($_POST['zip_code']));
 
-    $program_name = htmlspecialchars($_POST['program_id']);
-    $employer_name = htmlspecialchars($_POST['employer_name']);
-    $continue_edu = htmlspecialchars($_POST['continue_edu']);
-    $state = htmlspecialchars($_POST['states']);
-    $continue_edu = htmlspecialchars($_POST['continue_edu']);
+    $program_name = isLetter(isempty(htmlspecialchars($_POST['program_id'])));
+    $employer_name = isLetterisempty(htmlspecialchars($_POST['employer_name']));
+    $continue_edu = isempty(htmlspecialchars($_POST['continue_edu']));
+    $state = isempty(htmlspecialchars($_POST['states']));
+    $continue_edu = isempty(htmlspecialchars($_POST['continue_edu']));
     //$location = $_POST['location'];
     $form_info = new form_info($graduate_year,$salary,$employment_position,$program_name,$employer_name,$continue_edu,$country,$state,$city,$zip_code);
     $form_info->insert();
