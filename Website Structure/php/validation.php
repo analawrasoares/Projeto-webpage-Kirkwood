@@ -1,35 +1,38 @@
 
 <?php 
-var $error = '';
 // define variables and set to empty values
- $k_number = $first_name = $Middle_name = $last_name = $email = "";
-
 
 
   
 //---------------function to check if is empty
-function isempty(var $value){
+function isempty($value,$place){
     if(empty($value)){
-        var $error .="you should enter some value<br>"; 
+        header("Location: ..\Graduate_form.html?error=1&&p=$place");
+    }else{
+        return $value;
     }
 }
 //--------------function to check if is letters
-function isLetter(var $value){
+function isLetter($value,$place){
     if (!preg_match("/^[a-zA-Z ]*$/",$value)) {
-      $error .= "Only letters and white space allowed<br>";
-
+       
+      header("Location: ..\Graduate_form.html?error=2&&p=$place");
+    }else{
+        return $value;
+    }
 }
 //--------------function to check if the email is correct
-function isEmail(var $email){
+function isEmail($email){
     
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $error . = "Invalid email format";  
+        
+      header("Location: ..\Graduate_form.html?error=3&&p=$place"); 
     
+    }else{
+        return $value;
     }
 }
 //------------function to check if 
-
-
 
 ?>
     
