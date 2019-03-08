@@ -6,47 +6,36 @@
  * Discription: 
  */
 require('form_info.php');
-require('validatioin.php');
+require('validation.php');
 if(isset($_POST['submit'])){
-    $graduate_year = isempty(htmlspecialchars( $_POST['graduate_year']));
+    $graduate_year = isempty(htmlspecialchars( $_POST['graduate_year']),'1');
 
-    $salary = isempty(htmlspecialchars( $_POST['salary'])));
-    $employment_position = isLetter(isempty(htmlspecialchars($_POST['employment_position'])));
+    $salary = isempty(htmlspecialchars( $_POST['salary'],'1'),'1');
+    $employment_position = isLetter(isempty(htmlspecialchars($_POST['employment_position']),'2'),'2');
 
-    $country = isLetter(isempty(htmlspecialchars($_POST['country'])));
+    $country = isLetter(isempty(htmlspecialchars($_POST['country']),'3'),'3');
     $city = isempty(htmlspecialchars($_POST['city']));
-    $zip_code = isempty(htmlspecialchars($_POST['zip_code']));
+    $zip_code = isempty(htmlspecialchars($_POST['zip_code']),'4');
 
-<<<<<<< HEAD
-    $program_name = isLetter(isempty(htmlspecialchars($_POST['program_id'])));
-    $employer_name = isLetterisempty(htmlspecialchars($_POST['employer_name']));
-    $continue_edu = isempty(htmlspecialchars($_POST['continue_edu']));
-    $state = isempty(htmlspecialchars($_POST['states']));
-    $continue_edu = isempty(htmlspecialchars($_POST['continue_edu']));
-=======
+
+    $program_name = isLetter(isempty(htmlspecialchars($_POST['program_id']),'5'),'5');
+    $employer_name = isLetter(isempty(htmlspecialchars($_POST['employer_name']),'6'),'6');
+    $continue_edu = isempty(htmlspecialchars($_POST['continue_edu']),'7');
+    $continue_edu = isempty(htmlspecialchars($_POST['continue_edu']),'8');
+
     $program_name = htmlspecialchars($_POST['program_id']);
     $employer_name = htmlspecialchars($_POST['employer_name']);
     $continue_edu = htmlspecialchars($_POST['continue_edu']);
     if(isset($_POST['states'])){
-        $state = htmlspecialchars($_POST['states']);
+        $state = isempty(htmlspecialchars($_POST['states']),'9');
     }else{
         $state = " ";
     }
-    
     $continue_edu = htmlspecialchars($_POST['continue_edu']);
->>>>>>> 887ecaef5db98a907a98e064975be04950db42ca
     //$location = $_POST['location'];
     $form_info = new form_info($graduate_year,$salary,$employment_position,$program_name,$employer_name,$continue_edu,$country,$state,$city,$zip_code);
     $form_info->insert();
-    echo "Program Name: ".$form_info->getProgram_name() ;
-    echo "<br>Graduate Year: ".$form_info->getGraduate_year();
-    echo "<br>Salary: ".$form_info->getSalary();
-    echo "<br>Employment position:  ".$form_info->getEmployment_position();
-    echo "<br>employer Name:  ".$form_info->getEmployer_name();
-    echo "<br>continue:  ".$form_info->getContinue_edu();
-    echo "<br>".$city."<br>".$zip_code;
     
-    //echo "Program Name: ". $program_name."<br>Graduate Year: ".$graduate_year."<br>Continue:  ".$continue_edu."<br>Position: ".$employment_position."<br>Salary:  ".$salary."<br>Employer:  ".$employer_name."<br>Country:  ".$country;
 }
     
 ?>
