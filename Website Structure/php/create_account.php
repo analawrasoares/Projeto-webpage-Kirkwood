@@ -19,7 +19,12 @@ if(isset($_POST['submit'])){
     $program_name = htmlspecialchars($_POST['program_id']);
     $employer_name = htmlspecialchars($_POST['employer_name']);
     $continue_edu = htmlspecialchars($_POST['continue_edu']);
-    $state = htmlspecialchars($_POST['states']);
+    if(isset($_POST['states'])){
+        $state = htmlspecialchars($_POST['states']);
+    }else{
+        $state = " ";
+    }
+    
     $continue_edu = htmlspecialchars($_POST['continue_edu']);
     //$location = $_POST['location'];
     $form_info = new form_info($graduate_year,$salary,$employment_position,$program_name,$employer_name,$continue_edu,$country,$state,$city,$zip_code);
