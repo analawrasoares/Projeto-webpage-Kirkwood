@@ -98,7 +98,8 @@ CREATE TABLE Location (
                 zip VARCHAR(5) NOT NULL,
                 state_name VARCHAR(50) NOT NULL,
                 country_code VARCHAR(3) NOT NULL,
-                PRIMARY KEY (location_id)
+                PRIMARY KEY (location_id),
+                UNIQUE (zip)
 );
 
 ALTER TABLE Staff_Duty ADD CONSTRAINT duty_name_fk
