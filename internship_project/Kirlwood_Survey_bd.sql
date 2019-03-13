@@ -25,7 +25,7 @@ CREATE TABLE Staff (
 );
 
 
-CREATE TABLE Staff_Duty (   
+CREATE TABLE Staff_Duty (
                 k_number VARCHAR(8) NOT NULL,
                 duty_name VARCHAR(25) NOT NULL,
                 PRIMARY KEY (k_number, duty_name)
@@ -34,7 +34,6 @@ CREATE TABLE Staff_Duty (
 
 CREATE TABLE State (
                 state_name VARCHAR(50) NOT NULL,
-                state_code VARCHAR(3),
                 PRIMARY KEY (state_name)
 );
 
@@ -42,7 +41,6 @@ CREATE TABLE State (
 CREATE TABLE Country (
                 country_code VARCHAR(3) NOT NULL,
                 country_name VARCHAR(50) NOT NULL,
-                short_code VARCHAR(3),
                 PRIMARY KEY (country_code)
 );
 
@@ -69,7 +67,7 @@ CREATE TABLE Form (
                 form_id INT AUTO_INCREMENT NOT NULL,
                 graduate_id INT NOT NULL,
                 graduate_year VARCHAR(4) NOT NULL,
-                salary_range VARCHAR(15), 
+                salary-range VARCHAR(15), 
                 employment_position VARCHAR(60),
                 location_id INT NOT NULL,
                 submission_date DATE NOT NULL,
@@ -98,15 +96,14 @@ CREATE TABLE Location (
                 zip VARCHAR(5) NOT NULL,
                 state_name VARCHAR(50) NOT NULL,
                 country_code VARCHAR(3) NOT NULL,
-                PRIMARY KEY (location_id),
-                UNIQUE (zip)
+                PRIMARY KEY (location_id)
 );
 
 ALTER TABLE Staff_Duty ADD CONSTRAINT duty_name_fk
 FOREIGN KEY (duty_name)
 REFERENCES Duty (duty_name)
 ON DELETE NO ACTION
-ON UPDATE NO ACTION;
+ON UPDATE NO ACTION
 
 ALTER TABLE Staff_Duty ADD CONSTRAINT k_number_fk
 FOREIGN KEY (k_number)
@@ -132,11 +129,14 @@ REFERENCES Program (program_name)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-/*
 ALTER TABLE Form ADD CONSTRAINT graduate_id_fk
 FOREIGN KEY (graduate_id)
 REFERENCES Graduate (graduate_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-*/
+ALTER TABLE Location ADD CONSTRAINT form_id_fk
+FOREIGN KEY (form_id)
+REFERENCES Form (form_id)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;

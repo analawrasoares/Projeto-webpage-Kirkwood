@@ -5,7 +5,6 @@
  * Date: 02/25/2019
  * Discription: 
  */
-require('Helper.php');
 class form_info{
     private $graduate_year;
     private $graduate;
@@ -23,7 +22,6 @@ class form_info{
     private $state;
     private $city;
     private $zip_code;
-    private $country_code;
 
     /**
      * Undocumented function
@@ -41,61 +39,23 @@ class form_info{
      */
     function __construct($graduate_year,$salary,$employment_position,$program_name,$employer_name,$continue_edu,$country,$state,$city,$zip_code){
         $this->graduate_year= $graduate_year;
-        $this->graduate_id = "";
+        $this->graduate = "null";
         $this->salary = $salary;
         $this->employment_position = $employment_position;
         $this->program_name = $program_name;
         $this->employer_name = $employer_name;
         $this->continue_edu = $continue_edu;
 
-        $this->location_id = "";
-        $this->submission_date = "";
-        $this->submitted = "";
+        $this->location_id = "null";
+        $this->submission_date = "null";
+        $this->submitted = "null";
 
         $this->country = $country;
         $this->state = $state;;
         $this->city = $city;
         $this->zip_code = $zip_code;
-        $this->country_code = "";
     }
 
-    public function insert(){
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "Kirkwood_Survey";
-
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-        // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            } 
-            $date = date("Ymd");
-
-            $sql = "INSERT IGNORE INTO State (state_name)VALUES ('$this->state') ;";
-            $sql .= "INSERT IGNORE INTO Location (city, zip, state_name , country_code)VALUES ('$this->city', '$this->zip_code', (SELECT state_name FROM state WHERE state_name = '$this->state' ), (SELECT country_code FROM country WHERE country_code = '$this->country' ));";
-            $sql .= "INSERT IGNORE INTO program (program_name)VALUES ('$this->program_name');";
-            
-
-            if ($conn->multi_query($sql) === TRUE) {
-                echo "New record created successfully";
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-            }
-
-            $newsql = "INSERT INTO Form (graduate_id, graduate_year, salary_range, employment_position, location_id, submission_date, program_name, employer_name, continue_edu, have_job)VALUES ('$this->graduate_id' , '$this->graduate_year' , '$this->salary' , '$this->employment_position' , (SELECT location_id FROM Location WHERE zip = '$this->zip_code' and city='$this->city'),'$date','$this->program_name','$this->employer_name','$this->continue_edu',true);";
-            $conn->close();
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            if ($conn->query($newsql) === TRUE) {
-                echo "New record created successfully";
-            } else {
-                echo "Error: " . $newsql . "<br>" . $conn->error;
-            }
-
-
-            $conn->close();
-    }
     /**
      * Get the value of graduate_year
      */ 
