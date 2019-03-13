@@ -13,21 +13,21 @@ if(isset($_POST['submit'])){
     $salary = isempty(htmlspecialchars( $_POST['salary'],'1'),'1');
     $employment_position = isLetter(isempty(htmlspecialchars($_POST['employment_position']),'2'),'2');
 
-    $country = isLetter(isempty(htmlspecialchars($_POST['country']),'3'),'3');
-    $city = isempty(htmlspecialchars($_POST['city']));
-    $zip_code = isempty(htmlspecialchars($_POST['zip_code']),'4');
+    $country =isLetter(isempty(htmlspecialchars($_POST['country']),'3'),'3');
+    $city = isempty(htmlspecialchars($_POST['city']),'4');
+    $zip_code = isempty(htmlspecialchars($_POST['zip_code']),'5');
 
 
-    $program_name = isLetter(isempty(htmlspecialchars($_POST['program_id']),'5'),'5');
-    $employer_name = isLetter(isempty(htmlspecialchars($_POST['employer_name']),'6'),'6');
-    $continue_edu = isempty(htmlspecialchars($_POST['continue_edu']),'7');
+    $program_name = isLetter(isempty(htmlspecialchars($_POST['program_id']),'6'),'6');
+    $employer_name = isLetter(isempty(htmlspecialchars($_POST['employer_name']),'7'),'7');
     $continue_edu = isempty(htmlspecialchars($_POST['continue_edu']),'8');
+    $continue_edu = isempty(htmlspecialchars($_POST['continue_edu']),'9');
 
     $program_name = htmlspecialchars($_POST['program_id']);
     $employer_name = htmlspecialchars($_POST['employer_name']);
     $continue_edu = htmlspecialchars($_POST['continue_edu']);
     if(isset($_POST['states'])){
-        $state = isempty(htmlspecialchars($_POST['states']),'9');
+        $state = isempty(htmlspecialchars($_POST['states']),'10');
     }else{
         $state = " ";
     }
