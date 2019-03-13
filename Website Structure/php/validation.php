@@ -32,7 +32,7 @@ function isEmail($email){
         return $value;
     }
 }
-//------------function to check if 
+//--------------
 
 ?>
     
