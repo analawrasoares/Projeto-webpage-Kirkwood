@@ -47,7 +47,6 @@ function country_check(){
 	  	}
 	  	else{
 	  		city.setAttribute("required","");
-
 	  	}
 		div.appendChild(city);
 		div.appendChild(zip);
