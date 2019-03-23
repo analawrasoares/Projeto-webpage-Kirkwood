@@ -26,4 +26,19 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 }
+
+function connect_db($db_name){
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = $db_name;
+
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            } 
+    return $conn;
+}
 ?>
