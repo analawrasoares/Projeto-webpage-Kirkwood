@@ -60,17 +60,7 @@ class form_info{
     }
 
     public function insert(){
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "Kirkwood_Survey";
-
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-        // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            } 
+            $conn = connect_db("Kirkwood_Survey");
             $date = date("Ymd");
 
             $sql = "INSERT IGNORE INTO State (state_name)VALUES ('$this->state') ;";
@@ -84,9 +74,9 @@ class form_info{
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
 
-            $newsql = "INSERT INTO Form (graduate_id, graduate_year, salary_range, employment_position, location_id, submission_date, program_name, employer_name, continue_edu, have_job)VALUES ('$this->graduate_id' , '$this->graduate_year' , '$this->salary' , '$this->employment_position' , (SELECT location_id FROM Location WHERE zip = '$this->zip_code' and city='$this->city'),'$date','$this->program_name','$this->employer_name','$this->continue_edu',true);";
+            $newsql = "INSERT INTO Form (graduate_id, graduate_year, salary_range, employment_position, location_id, submission_date, program_name, employer_name, continue_edu, have_job)VALUES ('$this->graduate_id' , '$this->graduate_year' , '$this->salary' , '$this->employment_position' , (SELECT location_id FROM Location WHERE zip = '$this->zip_code' ),'$date','$this->program_name','$this->employer_name','$this->continue_edu',true);";
             $conn->close();
-            $conn = new mysqli($servername, $username, $password, $dbname);
+            $conn = connect_db("Kirkwood_Survey");
             if ($conn->query($newsql) === TRUE) {
                 echo "New record created successfully";
             } else {
