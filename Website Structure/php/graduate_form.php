@@ -10,12 +10,12 @@ require('validation.php');
 if(isset($_POST['submit'])){
     $graduate_year = isempty(htmlspecialchars( $_POST['graduate_year']),'1');
 
-    $salary = isempty(htmlspecialchars( $_POST['salary'],'1'),'1');
+    $salary = isNumber(isempty(htmlspecialchars( $_POST['salary'],'1'),'1'),'1');
     $employment_position = isLetter(isempty(htmlspecialchars($_POST['employment_position']),'2'),'2');
 
     $country =isLetter(isempty(htmlspecialchars($_POST['country']),'3'),'3');
     $city = isempty(htmlspecialchars($_POST['city']),'4');
-    $zip_code = isempty(htmlspecialchars($_POST['zip_code']),'5');
+    $zip_code = isNumber(isempty(htmlspecialchars($_POST['zip_code']),'5'),'5');
 
 
     $program_name = isLetter(isempty(htmlspecialchars($_POST['program_id']),'6'),'6');
