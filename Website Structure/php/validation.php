@@ -32,7 +32,17 @@ function isEmail($email){
         return $value;
     }
 }
-//--------------
+//--------------function to check if is number
+
+function isNumber($value){
+    
+ if (!preg_match('/^[0-9]+(\\.[0-9]+)?$/', $value)){
+     
+     header("Location: ..\Graduate_form.html?error=3&&p=$place"); 
+     
+    }else{
+        return $value; 
+    }
 
 ?>
     
