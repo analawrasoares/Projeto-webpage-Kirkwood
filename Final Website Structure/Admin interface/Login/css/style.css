@@ -1,0 +1,92 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+*{margin: 0;
+ padding: 0;
+}
+
+html {
+	height: 100%;
+}
+body {
+	font-family: montserrat, arial, verdana;
+	background-image: url("../pic/background.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.Kcc_Logo{
+	width: 25%;
+	margin-bottom: 2%;
+}
+
+article{
+	width: 30%;
+	padding: 2%;
+	margin-left: 33%;
+	margin-top: 8%;
+	color: white;
+	border-radius: 2px;
+	text-align: center;
+	background-color: rgba(0,0,0,0.5);
+
+}
+
+.inp{
+	padding-left: 15%;
+	padding-bottom: 2%;
+	margin-top: 9%;
+	margin-bottom: 2%;
+	width: 80%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: white;
+	font-size: 20px;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid white;
+	position: relative;
+
+}
+
+.inp:hover, .inp:focus{
+	cursor: pointer;
+}
+
+.inp:focus{
+	outline: none;
+
+
+}
+
+.input_container img{
+	width: 30px;
+	position: absolute;
+	margin-top: 2.5%;
+	margin-left: 0.5%;
+}
+
+a{
+	text-decoration: none;
+	color: gray;
+	margin-left: 55%;
+	font-size: 12px;
+}
+
+a:hover, a:focus{
+	color: white;
+}
+
+.btn{
+	margin-top: 5%;
+	background-color: #0b76a8;
+	border:none;
+	width: 80%;
+	font-size: 20px;
+	color: white;
+	height:35px;
+}
+
+.btn:hover, .btn:focus{
+	background-color: #0f8cc6;
+	cursor: pointer;
+}
+
