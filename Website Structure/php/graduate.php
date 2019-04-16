@@ -29,18 +29,7 @@ class graduate{
     }
 
     
-    public function insert_graduate(){
-        $conn = connect_db("Kirkwood_Survey");
-        $sql = "INSERT IGNORE INTO graduate (k_number,first_name,middle_name,last_name,email)VALUES ('$this->k_number','$this->first_name','$this->middle_name','$this->last_name','$this->email') ;";
-        if ($conn->multi_query($sql) === TRUE) {
-                echo "New record created successfully";
-            return true;
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-                return false;
-            }
-        $conn->close();
-    }
+    
     /**
      * Get the value of k_number
      */ 
