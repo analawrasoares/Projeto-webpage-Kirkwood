@@ -47,6 +47,7 @@ function country_check(){
 	  	}
 	  	else{
 	  		city.setAttribute("required","");
+
 	  	}
 		div.appendChild(city);
 		div.appendChild(zip);
@@ -64,4 +65,14 @@ function country_check(){
 
 }
 
+
+function hover(element) {
+  var name = element.getAttribute("name");
+  element.setAttribute('src', 'pic/'+name+'.png');
+}
 		
+function unhover(element) {
+var name = element.getAttribute("name");
+  element.setAttribute('src', 'pic/'+name+'_logo.png');
+}
+
