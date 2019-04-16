@@ -5,6 +5,7 @@
  * Date: 02/25/2019
  * Discription: 
  */
+require('graduation_form_logic.php');
 require('form_info.php');
 require('validation.php');
 if(isset($_POST['submit'])){
@@ -35,7 +36,7 @@ if(isset($_POST['submit'])){
     $continue_edu = htmlspecialchars($_POST['continue_edu']);
     //$location = $_POST['location'];
     $form_info = new form_info($graduate_year,$salary,$employment_position,$program_name,$employer_name,$continue_edu,$country,$state,$city,$zip_code);
-    $form_info->insert();
+    insert_graduate_info($form_info);
     
 }
     
