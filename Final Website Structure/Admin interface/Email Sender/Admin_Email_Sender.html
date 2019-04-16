@@ -1,0 +1,107 @@
+<!--Author: Malek Ben Khalifa
+	Date:04-05-2019
+	Description: Admin_Email_Sender.html
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Email Sender</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/script.js"></script>
+	<link rel="shortcut icon" href="pic/kcc_Logo.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<header>
+      <div class="avatar">
+         <img src="pic/avatar.png">
+         <h3>Admin Full Name here</h3>
+      </div>
+		<a href="http://www.kirkwood.edu/" target="_blank"><img src="pic/kirkwood_logo.png"></a>
+	</header>
+
+<div class="x">
+<div class="tab">
+  <button class="tablinks active" onclick="div_flip(event,'in_progress')" >In Progress</button>
+  <button class="tablinks" onclick="div_flip(event,'done')">Done</button>
+</div>
+<div id="in_progress" class="tabcontent">
+		<div>
+		<button class="btn">Send The Surevey</button>
+		<button class="btn">Send A Reminder</button>
+		</div>
+
+<div class="table">   
+   <table cellspacing="0">
+      <tr>
+         <th><input type="checkbox" onclick="select_all(this)" alt="Select All"></th>
+         <th>Full Name</th>
+         <th>Email</th>
+         <th>Graduation Year</th>
+         <th>Survey Statue</th>
+      </tr>
+
+      <tr>
+         <td><input type="checkbox"></td>
+         <td>Jane Doe</td>
+         <td>jane.doe@foo.com</td>
+         <td>2015</td>
+         <td>Sent</td>
+      </tr>
+      <tr>
+         <td><input type="checkbox"></td>
+         <td>Jane Doe</td>
+         <td>jane.doe@foo.com</td>
+         <td>2015</td>
+         <td>Sent</td>
+      </tr>
+      <tr>
+         <td><input type="checkbox"></td>
+         <td>Jane Doe</td>
+         <td>jane.doe@foo.com</td>
+         <td>2015</td>
+         <td>Sent</td>
+      </tr>
+
+   </table>
+</div>
+</div>
+<div id="done" class="tabcontent" style="display: none;">
+   <div>
+      <button class="btn">Print</button>
+   </div>
+  <div class="table">   
+   <table cellspacing="0">
+      <tr>
+         <th>Full Name</th>
+         <th>Email</th>
+         <th>Graduation Year</th>
+         <th>Survey Complete Date</th>
+      </tr>
+
+      <tr>
+         <td>Jane Doe</td>
+         <td>jane.doe@foo.com</td>
+         <td>2015</td>
+         <td>04/05/2019</td>
+      </tr>
+      <tr>
+         <td>Jane Doe</td>
+         <td>jane.doe@foo.com</td>
+         <td>2015</td>
+         <td>04/05/2019</td>
+      </tr>
+      <tr>
+         <td>Jane Doe</td>
+         <td>jane.doe@foo.com</td>
+         <td>2015</td>
+         <td>04/05/2019</td>
+      </tr>
+
+   </table>
+</div>
+</div>
+</div>
+</body>
+</html>
