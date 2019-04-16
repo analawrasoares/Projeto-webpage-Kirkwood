@@ -1,4 +1,5 @@
 <?php
+require('graduation_form_logic.php');
 require('validation.php');
 require('graduate.php');
 if(isset($_POST['next'])){
@@ -8,7 +9,7 @@ if(isset($_POST['next'])){
     $last_name =isempty(htmlspecialchars($_POST['last_name']),4);
     $email = isempty(htmlspecialchars($_POST['email']),5);
 $graduate = new graduate($k_number,$first_name,$middle_name,$last_name,$email);
-$upload_success = $graduate->insert_graduate();
+$upload_success = insert_graduate($graduate);
     if($upload_success){
         $graduate_id = $graduate->getGraduate_id();
         header("Location:../Graduate_form.html?graduate_number=$graduate_id");
