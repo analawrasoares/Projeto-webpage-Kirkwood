@@ -61,7 +61,7 @@ CREATE TABLE Graduate (
                 middle_name VARCHAR(25) NOT NULL,
                 last_name VARCHAR(25) NOT NULL,
                 email VARCHAR(50) NOT NULL,
-                PRIMARY KEY (graduate_id)
+                PRIMARY KEY (graduate_id),
                 UNIQUE (k_number)
 );
 
