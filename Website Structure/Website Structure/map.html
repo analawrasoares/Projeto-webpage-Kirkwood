@@ -1,0 +1,55 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>ArcGIS JavaScript Tutorials: Create a Starter App</title>
+  <style>
+    html, body, #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  
+  <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.11/"></script>
+  
+  <script>  
+    require([
+      "esri/Map",
+      "esri/views/MapView"
+    ], function(Map, MapView) {
+
+      var map = new Map({
+        basemap: "topo-vector"
+      });
+      
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        center: [-118.80543,34.02700],
+        zoom: 13
+      });
+        var legend = new Legend({
+        view: view
+      });
+      view.ui.add(legend, "top-right");
+
+      var scalebar = new ScaleBar({
+        view: view
+      });
+      view.ui.add(scalebar, "bottom-left");
+        var featureLayer = new FeatureLayer({
+        url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0"
+      });
+
+      map.add(featureLayer);
+     
+    });
+  </script>
+</head>
+<body>
+  <div id="viewDiv" style="height: 450px;width: 450px;"></div>
+</body>
+</html>

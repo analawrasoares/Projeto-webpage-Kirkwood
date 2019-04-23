@@ -1,18 +1,41 @@
 <?php
-require('graduation_form_logic.php');
+
 require('validation.php');
-require('graduate.php');
+require('graduation_form_Logic.php');
+
 if(isset($_POST['next'])){
-    $k_number = isempty(htmlspecialchars($_POST['k_number']),1);
-    $first_name = isempty(htmlspecialchars($_POST['first_name']),2);
-    $middle_name = isempty(htmlspecialchars($_POST['Middle_name']),3);
-    $last_name =isempty(htmlspecialchars($_POST['last_name']),4);
-    $email = isempty(htmlspecialchars($_POST['email']),5);
-$graduate = new graduate($k_number,$first_name,$middle_name,$last_name,$email);
-$upload_success = insert_graduate($graduate);
+    $k_number = htmlspecialchars($_POST['k_number']);
+    $first_name = htmlspecialchars($_POST['first_name']);
+    $middle_name = htmlspecialchars($_POST['middle_name']);
+    $last_name =htmlspecialchars($_POST['last_name']);
+    $email = htmlspecialchars($_POST['email']);
+    $Thegraduate = new graduate($k_number,$first_name,$middle_name,$last_name,$email,"");
+    $upload_success = $Thegraduate->insert_graduate();
     if($upload_success){
-        $graduate_id = $graduate->getGraduate_id();
-        header("Location:../Graduate_form.html?graduate_number=$graduate_id");
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "Kirkwood_Survey";
+                    // Create connection
+            $conn = mysqli_connect($servername, $username, $password, $dbname);
+            // Check connection
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            $sql = "SELECT graduate_id, k_number FROM `graduate` WHERE k_number = '$k_number'limit 1";
+            $result = mysqli_query($conn, $sql);
+            $graduate_id="";
+            if (mysqli_num_rows($result) > 0) {
+                // output data of each row
+                while($row = mysqli_fetch_assoc($result)) {
+                   $graduate_id=  $row['graduate_id'];
+                }
+            } else {
+                echo "0 results";
+            }
+             header("Location:../Graduate_form.php?graduate_number=$graduate_id");
+            mysqli_close($conn);
+      
     }   
 echo $k_number.$first_name.$middle_name.$last_name.$email;     
 }

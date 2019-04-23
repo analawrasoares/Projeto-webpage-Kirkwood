@@ -5,7 +5,6 @@
  * Date: 02/25/2019
  * Discription: 
  */
-require('Helper.php');
 class form_info{
     public $graduate_year;
     public $graduate;
@@ -40,7 +39,7 @@ class form_info{
      * @param [type] $city
      * @param [type] $zip_code
      */
-    function __construct($graduate_year,$salary,$employment_position,$program_name,$employer_name,$continue_edu,$country,$state,$city,$zip_code,$work_satatus,$graduate_id){
+    function __construct($graduate_year,$salary,$employment_position,$program_name,$employer_name,$continue_edu,$country,$state,$city,$zip_code,$work_satatus,$graduate_id,$submission_date = ""){
         $this->graduate_year= $graduate_year;
         $this->graduate_id = $graduate_id;
         $this->salary = $salary;
@@ -50,7 +49,7 @@ class form_info{
         $this->continue_edu = $continue_edu;
 
         $this->location_id = "";
-        $this->submission_date = "";
+        $this->submission_date = $submission_date;
         $this->submitted = "";
 
         $this->country = $country;
@@ -278,6 +277,68 @@ class form_info{
     public function setState($state)
     {
         $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of work_satatus
+     */ 
+    public function getWork_satatus()
+    {
+        return $this->work_satatus;
+    }
+
+    /**
+     * Set the value of work_satatus
+     *
+     * @return  self
+     */ 
+    public function setWork_satatus($work_satatus)
+    {
+        $this->work_satatus = $work_satatus;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of country_code
+     */ 
+    public function getCountry_code()
+    {
+        return $this->country_code;
+    }
+
+    /**
+     * Set the value of country_code
+     *
+     * @return  self
+     */ 
+    public function setCountry_code($country_code)
+    {
+        $this->country_code = $country_code;
+
+        return $this;
+    }
+
+  
+
+    /**
+     * Get the value of submission_date
+     */ 
+    public function getSubmission_date()
+    {
+        return $this->submission_date;
+    }
+
+    /**
+     * Set the value of submission_date
+     *
+     * @return  self
+     */ 
+    public function setSubmission_date($submission_date)
+    {
+        $this->submission_date = $submission_date;
 
         return $this;
     }

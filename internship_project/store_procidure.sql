@@ -58,7 +58,7 @@ INSERT INTO Form
 			a_graduate_id 
 			, a_graduate_year 
 			, a_salary_range 
-			, employment_position 
+			, a_employment_position 
 			, 	(SELECT location_id
 					FROM Location 
 					WHERE zip = a_zip 

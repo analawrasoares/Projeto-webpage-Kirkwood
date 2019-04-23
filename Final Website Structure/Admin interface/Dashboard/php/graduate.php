@@ -4,10 +4,10 @@
  * Date: 02/25/2019
  * Discription: 
  */
-require("Helper.php");
+
 class graduate{
     private $k_number;
-    public $first_name;
+    private $first_name;
     private $last_name;
     private $email;
     private $middle_name;
