@@ -209,8 +209,8 @@ function myMap() {
       '</div>'+
       '<h1 id="firstHeading" class="firstHeading">'+result[i].state_name+'</h1>'+
       '<div id="bodyContent">'+
-      '<p>State Name: '+result[i].country_code+'<br>'+
-      '<p>Country Name: '+result[i].state_name+'<br>'+
+      '<p>Country Name: '+result[i].country_code+'<br>'+
+      '<p>State Name: '+result[i].state_name+'<br>'+
       'Number of Student Working: '+result[i].people_work+'<br>'+
       'Average Salary : '+result[i].average_salary
       +'k</p>'+
