@@ -91,7 +91,11 @@
         </div>
 
         <div id="statistics" class="tabcontent" style="display: none;">
-            <input type="text" name="">b
+            <!------ statistic going to present here--->
+            <div id="map">
+                <div id="data"></div>
+                <div id="googleMap" style="width:100%;height:400px;"></div>
+            </div>
         </div>
         <div id="email_statue" class="tabcontent" style="display: none;">
 
@@ -182,3 +186,64 @@
 </body>
 
 </html>
+<script>
+function myMap() {
+    
+    var mapProp= {
+      center:new google.maps.LatLng(40.633125,-89.398528),
+      zoom:5,
+    };
+    var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+        
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        state_info=  this.responseText;
+        result = JSON.parse(this.responseText);
+
+        for(var i = 0; i < result.length;i++){
+            if(result[i].latitude1!=""&&result[i].longitude!=""){
+                var state = {lat: parseFloat(result[i].latitude), lng: parseFloat(result[i].longitude)};
+                var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">'+result[i].state_name+'</h1>'+
+      '<div id="bodyContent">'+
+      '<p>State Name: '+result[i].country_code+'<br>'+
+      '<p>Country Name: '+result[i].state_name+'<br>'+
+      'Number of Student Working: '+result[i].people_work+'<br>'+
+      'Average Salary : '+result[i].average_salary
+      +'k</p>'+
+      '</div>'+
+      '</div>';
+
+                var marker = new google.maps.Marker({
+                position: state,
+                map: map,
+                title: result[i].state_name
+                });
+                
+                var infowindow = new google.maps.InfoWindow(); 
+                google.maps.event.addListener(marker,'click', (function(marker,contentString,infowindow){ 
+                    return function() {
+                        infowindow.close();
+                        infowindow.setContent(contentString);
+                        infowindow.open(map,marker);
+                        windows.push(infowindow)
+                        google.maps.event.addListener(map,'click', function(){ 
+                            infowindow.close();
+                        }); 
+                    };
+                })(marker,contentString,infowindow));  
+                
+            }
+            
+        }
+      }
+    };
+    xmlhttp.open("GET", "php/statistics_state.php", true);
+    xmlhttp.send();
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHZeIXv3LGNelhLJU1MgXSRHseiUazy04&callback=myMap"></script>

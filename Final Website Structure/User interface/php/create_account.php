@@ -10,19 +10,14 @@ if(isset($_POST['next'])){
     $last_name =htmlspecialchars($_POST['last_name']);
     $email = htmlspecialchars($_POST['email']);
     $Thegraduate = new graduate($k_number,$first_name,$middle_name,$last_name,$email,"");
-    $upload_success = $Thegraduate->insert_graduate();
+    $upload_success = insert_graduate($Thegraduate);
     if($upload_success){
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "Kirkwood_Survey";
-                    // Create connection
-            $conn = mysqli_connect($servername, $username, $password, $dbname);
+        $conn = connectDb();
             // Check connection
             if (!$conn) {
                 die("Connection failed: " . mysqli_connect_error());
             }
-            $sql = "SELECT graduate_id, k_number FROM `graduate` WHERE k_number = '$k_number'limit 1";
+            $sql = "CALL sp_get_graduate_id_from_k_number('$k_number')";
             $result = mysqli_query($conn, $sql);
             $graduate_id="";
             if (mysqli_num_rows($result) > 0) {

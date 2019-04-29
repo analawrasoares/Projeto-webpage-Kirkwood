@@ -35,6 +35,8 @@ CREATE TABLE Staff_Duty (
 CREATE TABLE State (
                 state_name VARCHAR(50) NOT NULL,
                 state_code VARCHAR(3),
+                latitude decimal,
+                longitude decimal,
                 PRIMARY KEY (state_name)
 );
 

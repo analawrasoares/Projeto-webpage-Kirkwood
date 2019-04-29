@@ -1,12 +1,6 @@
 <?php
     require('php/graduation_form_Logic.php');
-    if(isset($_GET["graduate_number"])){
-        $graduate_id = htmlspecialchars($_GET['graduate_number']);
-        $graduate = getGraduateInfo($graduate_id);
-        echo "Hi Mr.".$graduate->getFirst_name();
-    }else{
-        echo "geaduate id is not avaiable";
-    }
+    
 ?>
 
 
@@ -42,6 +36,14 @@
 		<a href="https://www.instagram.com/kirkwoodlife/" target="_blank"><img src="pic/Instagram_logo.png" class="social" name="Instagram"onmouseover="hover(this);" onmouseout="unhover(this);"></a>
 		<a href="https://www.facebook.com/kirkwoodcommunitycollege" target="_blank"><img src="pic/Facebook_logo.png" class="social" name="Facebook" onmouseover="hover(this);" onmouseout="unhover(this);"></a>
 	<a href="#form" class="btn">Start The Survey</a>
+	<h1><?php
+        if(isset($_GET["graduate_number"])){
+        $graduate_id = htmlspecialchars($_GET['graduate_number']);
+        $thisgraduate = getGraduateInfo($graduate_id);
+        echo "Hi ".$thisgraduate->getFirst_name();
+    }else{
+        
+    }?></h1>
 	<h1>Kirkwood After Graduation <br>Survey</h1>
 	<h4>This survey is made for Kirkwood graduated student to follow their professional progress.<br>
 All the information received from this survey help us to improve our educational system so we can help our student to start their professional carrier</h4>
@@ -86,8 +88,8 @@ All the information received from this survey help us to improve our educational
 		<br>
 		<select name="continue_edu" id="edu_select" required="">
 			<option value="">Select Option</option>
-			<option value="true"><b>Yes</b>, I have continued my education since I left Kirkwood</option>
-			<option value="false"><b>No</b>, I didn't continued my education since I left Kirkwood</option>
+			<option value="1"><b>Yes</b>, I have continued my education since I left Kirkwood</option>
+			<option value="0"><b>No</b>, I didn't continued my education since I left Kirkwood</option>
 		</select>
 		<label>Working Statue</label><!--does graduated have a job or no options-->
 		<br>
@@ -415,9 +417,7 @@ if(isset($_POST['submit'])){
         //$location = $_POST['location'];
         $form_info = new form_info($graduate_year,$salary,$employment_position,$program_name,$employer_name,$continue_edu,$country,$state,$city,$zip_code,$work_satatus,$graduate_id);
         insert_graduate_info($form_info);
-
-      
-    
+   
 }
     
 ?>

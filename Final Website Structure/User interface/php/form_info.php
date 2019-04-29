@@ -5,7 +5,7 @@
  * Date: 02/25/2019
  * Discription: 
  */
-require('Helper.php');
+
 class form_info{
     public $graduate_year;
     public $graduate;

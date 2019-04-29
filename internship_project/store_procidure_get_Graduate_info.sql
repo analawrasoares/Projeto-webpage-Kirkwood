@@ -9,8 +9,8 @@ use kirkwood_survey;
 -- Changing the delimiter into //
 DELIMITER //
 
-CREATE PROCEDURE SP_get_form_information(
-	graduate_id int
+CREATE PROCEDURE SP_get_GraduateInfo(
+	in_graduate_id int
 ) 
 	BEGIN
 		SELECT 
@@ -22,7 +22,7 @@ CREATE PROCEDURE SP_get_form_information(
             , last_name
             , email
 		FROM graduate
-        WHERE graduate_id = graduate_id
+        WHERE graduate_id = in_graduate_id
         LIMIT 1;
 	
 END//

@@ -24,6 +24,8 @@ class form_info{
     public $zip_code;
     public $country_code;
     public $work_satatus;
+    public $latitude;
+    public $longitude;
 
     /**
      * Undocumented function
@@ -39,7 +41,7 @@ class form_info{
      * @param [type] $city
      * @param [type] $zip_code
      */
-    function __construct($graduate_year,$salary,$employment_position,$program_name,$employer_name,$continue_edu,$country,$state,$city,$zip_code,$work_satatus,$graduate_id,$submission_date = ""){
+    function __construct($graduate_year,$salary,$employment_position,$program_name,$employer_name,$continue_edu,$country,$state,$city,$zip_code,$work_satatus,$graduate_id,$submission_date = "",$latitude,$longitude){
         $this->graduate_year= $graduate_year;
         $this->graduate_id = $graduate_id;
         $this->salary = $salary;
@@ -58,6 +60,8 @@ class form_info{
         $this->zip_code = $zip_code;
         $this->country_code = "";
         $this->work_satatus = $work_satatus;
+        $this->latitude = $latitude;
+        $this->longitude =$longitude;
     }
 
     

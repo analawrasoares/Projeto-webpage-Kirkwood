@@ -33,13 +33,17 @@ CREATE PROCEDURE SP_get_form_information(
             , location.zip
             , location.state_name
             , country_code
+            , state.latitude
+            , state.longitude
 		FROM graduate
         INNER JOIN form
 		ON graduate.graduate_id = form.graduate_id
         INNER JOIN location
         ON form.location_id = location.location_id
-        GROUP BY graduate.k_number;
-	
+        INNER JOIN state 
+        ON location.state_name = state.state_name
+        GROUP BY graduate.k_number
+        ORDER BY form.submission_date;
 END//
 -- Reassign the original delimiter
 DELIMITER ;

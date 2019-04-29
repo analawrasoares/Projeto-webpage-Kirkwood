@@ -6,12 +6,12 @@
  */
 require("Helper.php");
 class graduate{
-    private $k_number;
+    public $k_number;
     public $first_name;
-    private $last_name;
-    private $email;
-    private $middle_name;
-    private $graduate_id;
+    public $last_name;
+    public $email;
+    public $middle_name;
+    public $graduate_id;
     /**
      * This is the main constructure of graduate class
      *
@@ -131,34 +131,8 @@ class graduate{
         return $this;
     }
 
-    /**
-     * Get the value of graduate_id
-     */ 
-    function insert_graduate(){
-     
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-         $dbname = "Kirkwood_Survey";
-
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-        // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            } 
-     
-        $sql = "INSERT IGNORE INTO graduate (k_number,first_name,middle_name,last_name,email)VALUES ('$this->k_number','$this->first_name','$this->middle_name','$this->last_name','$this->email') ;";
-        if ($conn->multi_query($sql) === TRUE) {
-                echo "New record created successfully";
-                echo "Thank you for your help";
-            return true;
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-                return false;
-            }
-        $conn->close();
-    }
+  
+    
    
     
 }

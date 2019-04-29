@@ -1,25 +1,25 @@
 <?php
-require('php/graduate.php');
-require('php/form_info.php');
+require('graduate.php');
+require('form_info.php');
     $servername = "localhost";
-     $username = "root";
+    $username = "root";
     $password = "";
     $dbname = "Kirkwood_Survey";
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
+   
+     $conn = mysqli_connect($servername, $username, $password, $dbname);
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
 
-    $sql = "CALL SP_get_form_information()";
-    $result = $conn->query($sql);
+        $sql = "CALL SP_get_form_information()";
+        $result = mysqli_query($conn, $sql);
 
-    if ($result->num_rows > 0) {
+    if (mysqli_num_rows($result) > 0) {
         // output data of each row
         $count = 0;
-        while($row = $result->fetch_assoc()) {
+        while($row = mysqli_fetch_assoc($result)) {
            $graduate_info[$count]= new graduate($row['k_number'],$row['first_name'],$row['middle_name'],$row['last_name'],$row['email'],$row['graduate_id']);
             $form_info[$count] = new form_info(
                 $row['graduate_year']
@@ -35,11 +35,14 @@ require('php/form_info.php');
                 , $row['have_job']
                 , $row['graduate_id']
                 , $row['submission_date']
+                , $row['latitude']
+                , $row['longitude']
             );
            $count++; 
         }
     } else {
         echo "0 results";
     }
+    
     $conn->close();
 ?>

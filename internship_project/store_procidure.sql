@@ -36,7 +36,7 @@ BEGIN
 			, a_zip
 			,  a_state_name	
 			, a_country_code
-            );
+	);
 	INSERT IGNORE INTO program (
 				program_name
 				)VALUES (
@@ -72,10 +72,5 @@ END //
 
 -- Reassign the original delimiter
 DELIMITER ;
-
-
-
-
-
 
 
