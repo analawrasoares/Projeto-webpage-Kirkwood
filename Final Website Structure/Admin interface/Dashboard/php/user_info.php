@@ -41,7 +41,7 @@ require('form_info.php');
            $count++; 
         }
     } else {
-        echo "0 results";
+        
     }
     
     $conn->close();

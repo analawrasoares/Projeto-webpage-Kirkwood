@@ -160,7 +160,7 @@
                 <div class="table">
                     <table cellspacing="0">
                        <?php
-                        
+                        if(isset($graduate_info)){
                             for($i=0;$i<sizeof($graduate_info);$i++){
                              ?>   
                                 <tr>
@@ -171,6 +171,7 @@
                                 </tr>
                              <?php   
                             }
+                        }
                         ?>
                         
 
