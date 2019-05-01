@@ -6,12 +6,12 @@
  */
 
 class graduate{
-    private $k_number;
-    private $first_name;
-    private $last_name;
-    private $email;
-    private $middle_name;
-    private $graduate_id;
+    public $k_number;
+    public $first_name;
+    public $last_name;
+    public $email;
+    public $middle_name;
+    public $graduate_id;
     /**
      * This is the main constructure of graduate class
      *
@@ -20,7 +20,7 @@ class graduate{
      * @param [type] $last_name
      * @param [type] $email
      */
-    function __construct($k_number,$first_name,$middle_name,$last_name,$email,$graduate_id) {
+    function __construct($k_number,$first_name,$middle_name,$last_name,$email,$graduate_id = 0) {
         $this->k_number = $k_number;
         $this->first_name = $first_name;
         $this->middle_name = $middle_name;

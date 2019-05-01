@@ -68,6 +68,9 @@ INSERT INTO Form
 			,a_employer_name
 			,a_continue_edu
 			,a_have_job);
+UPDATE graduate
+SET form_id = (SELECT form_id FROM form WHERE graduate_id = a_graduate_id) 
+WHERE graduate_id = a_graduate_id;
 END //
 
 -- Reassign the original delimiter

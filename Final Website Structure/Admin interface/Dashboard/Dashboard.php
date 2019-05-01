@@ -52,10 +52,10 @@
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831" />
 
-                        <path class="circle" stroke-dasharray="75, 100" d="M18 2.0845
+                        <path class="circle" stroke-dasharray="<?php echo round(($survey_complited/$total_surveier)*100)?>, 100" d="M18 2.0845
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831" />
-                        <text x="18" y="20.35" class="percentage">75%</text>
+                        <text x="18" y="20.35" class="percentage"><?php echo round(($survey_complited/$total_surveier)*100)?>%</text>
                     </svg>
                             <h3>Completed Surveys</h3>
                         </div>
@@ -65,10 +65,10 @@
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831" />
 
-                        <path class="circle" stroke-dasharray="50, 100" d="M18 2.0845
+                        <path class="circle" stroke-dasharray="<?php echo round((($total_surveier-$survey_complited)/$total_surveier)*100)?>, 100" d="M18 2.0845
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831" />
-                        <text x="18" y="20.35" class="percentage">10%</text>
+                        <text x="18" y="20.35" class="percentage"><?php echo round((($total_surveier-$survey_complited)/$total_surveier)*100)?>%</text>
                     </svg>
                             <h3>In Progress Surveys</h3>
                         </div>
