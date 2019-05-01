@@ -60,6 +60,8 @@ if (isset($_POST["upload"])) {
             );
         }
         if($response["type"] =="success"){
+            // getting the last position of graduate before uploading
+            $startingRowResult = runQuary("Call sp_get_last_uploaded_value()")['graduate_id'];
             for($i = 0;$i< count($graduat_csv_info);$i++){
                 if(insert_graduate($graduat_csv_info[$i])){
                     $response = array(
@@ -67,6 +69,10 @@ if (isset($_POST["upload"])) {
                     "message" => "Inserted gradute information succesfull");
                 }
             }
+            /// Getting the 
+            $endingingRowResult = runQuary("Call sp_get_last_uploaded_value()")['graduate_id'];
+            
+                 runQuary("INSERT INTO graduate_table_update_info(date_uploaded, starting_point, ending_point, uploaded_person, uploading_status) VALUES (NOW(),'$startingRowResult','$endingingRowResult','','INSERTED')");
         }
     }
 }

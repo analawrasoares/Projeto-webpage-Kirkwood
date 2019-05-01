@@ -56,7 +56,7 @@ CREATE TABLE Program (
 
 
 CREATE TABLE Graduate (
-                graduate_id INT AUTO_INCREMENT NOT NULL,
+                graduate_id INT NOT NULL,
                 form_id INT NOT NULL,
                 k_number VARCHAR(8) NOT NULL,
                 first_name VARCHAR(25) NOT NULL,
@@ -66,8 +66,24 @@ CREATE TABLE Graduate (
                 PRIMARY KEY (graduate_id),
                 UNIQUE (k_number)
 );
-
-
+CREATE TABLE Graduate_backUp (
+                graduate_id INT AUTO_INCREMENT NOT NULL,
+                form_id INT NOT NULL,
+                k_number VARCHAR(8) NOT NULL,
+                first_name VARCHAR(25) NOT NULL,
+                middle_name VARCHAR(25) NOT NULL,
+                last_name VARCHAR(25) NOT NULL,
+                email VARCHAR(50) NOT NULL,
+                UNIQUE (k_number)
+);
+CREATE TABLE graduate_table_update_info (
+				change_id int AUTO_INCREMENT PRIMARY KEY,
+                date_uploaded DATETIME,
+                starting_point INT,
+                ending_point INT,
+                uploaded_person VARCHAR(50),
+                uploading_status VARCHAR(50)
+);
 CREATE TABLE Form (
                 form_id INT AUTO_INCREMENT NOT NULL,
                 graduate_id INT NOT NULL,
