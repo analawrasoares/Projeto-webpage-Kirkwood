@@ -1,5 +1,5 @@
 /*
-	FILE: create_graduate_db.sql
+	FILE: Kirlwood_Survey_bd.sql
     DATE: 2019-02-20 (ISO-861 format)
     AUTHOR: Md Touhidul islam & Ana lura
 	DESCRIPTION: 
@@ -25,7 +25,7 @@ CREATE TABLE Staff (
 );
 
 
-CREATE TABLE Staff_Duty (
+CREATE TABLE Staff_Duty (   
                 k_number VARCHAR(8) NOT NULL,
                 duty_name VARCHAR(25) NOT NULL,
                 PRIMARY KEY (k_number, duty_name)
@@ -34,12 +34,9 @@ CREATE TABLE Staff_Duty (
 
 CREATE TABLE State (
                 state_name VARCHAR(50) NOT NULL,
-<<<<<<< HEAD
-=======
                 state_code VARCHAR(3),
                 latitude decimal,
                 longitude decimal,
->>>>>>> 9e30b084c47a812f084b1aa0053e7586fb5e2884
                 PRIMARY KEY (state_name)
 );
 
@@ -47,6 +44,7 @@ CREATE TABLE State (
 CREATE TABLE Country (
                 country_code VARCHAR(3) NOT NULL,
                 country_name VARCHAR(50) NOT NULL,
+                short_code VARCHAR(3),
                 PRIMARY KEY (country_code)
 );
 
@@ -58,7 +56,7 @@ CREATE TABLE Program (
 
 
 CREATE TABLE Graduate (
-                graduate_id INT AUTO_INCREMENT NOT NULL,
+                graduate_id INT NOT NULL,
                 form_id INT NOT NULL,
                 k_number VARCHAR(8) NOT NULL,
                 first_name VARCHAR(25) NOT NULL,
@@ -68,13 +66,28 @@ CREATE TABLE Graduate (
                 PRIMARY KEY (graduate_id),
                 UNIQUE (k_number)
 );
-
-
+CREATE TABLE Graduate_backUp (
+                graduate_id INT NULL,
+                form_id INT NOT NULL,
+                k_number VARCHAR(8) NOT NULL,
+                first_name VARCHAR(25) NOT NULL,
+                middle_name VARCHAR(25) NOT NULL,
+                last_name VARCHAR(25) NOT NULL,
+                email VARCHAR(50) NOT NULL
+);
+CREATE TABLE graduate_table_update_info (
+				change_id int AUTO_INCREMENT PRIMARY KEY,
+                date_uploaded DATETIME,
+                starting_point INT,
+                ending_point INT,
+                uploaded_person VARCHAR(50),
+                uploading_status VARCHAR(50)
+);
 CREATE TABLE Form (
                 form_id INT AUTO_INCREMENT NOT NULL,
                 graduate_id INT NOT NULL,
                 graduate_year VARCHAR(4) NOT NULL,
-                salary-range VARCHAR(15), 
+                salary_range VARCHAR(15), 
                 employment_position VARCHAR(60),
                 location_id INT NOT NULL,
                 submission_date DATE NOT NULL,
@@ -103,14 +116,15 @@ CREATE TABLE Location (
                 zip VARCHAR(5) NOT NULL,
                 state_name VARCHAR(50) NOT NULL,
                 country_code VARCHAR(3) NOT NULL,
-                PRIMARY KEY (location_id)
+                PRIMARY KEY (location_id),
+                UNIQUE (zip)
 );
 
 ALTER TABLE Staff_Duty ADD CONSTRAINT duty_name_fk
 FOREIGN KEY (duty_name)
 REFERENCES Duty (duty_name)
 ON DELETE NO ACTION
-ON UPDATE NO ACTION
+ON UPDATE NO ACTION;
 
 ALTER TABLE Staff_Duty ADD CONSTRAINT k_number_fk
 FOREIGN KEY (k_number)
@@ -136,14 +150,11 @@ REFERENCES Program (program_name)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
+/*
 ALTER TABLE Form ADD CONSTRAINT graduate_id_fk
 FOREIGN KEY (graduate_id)
 REFERENCES Graduate (graduate_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE Location ADD CONSTRAINT form_id_fk
-FOREIGN KEY (form_id)
-REFERENCES Form (form_id)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION;
+*/
