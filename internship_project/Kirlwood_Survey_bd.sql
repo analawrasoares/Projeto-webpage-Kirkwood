@@ -34,6 +34,12 @@ CREATE TABLE Staff_Duty (
 
 CREATE TABLE State (
                 state_name VARCHAR(50) NOT NULL,
+<<<<<<< HEAD
+=======
+                state_code VARCHAR(3),
+                latitude decimal,
+                longitude decimal,
+>>>>>>> 9e30b084c47a812f084b1aa0053e7586fb5e2884
                 PRIMARY KEY (state_name)
 );
 
@@ -59,7 +65,8 @@ CREATE TABLE Graduate (
                 middle_name VARCHAR(25) NOT NULL,
                 last_name VARCHAR(25) NOT NULL,
                 email VARCHAR(50) NOT NULL,
-                PRIMARY KEY (graduate_id)
+                PRIMARY KEY (graduate_id),
+                UNIQUE (k_number)
 );
 
 

@@ -7,16 +7,47 @@
 <head>
 	<title>Survey</title>
 	<script src="JS/graduate_form.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
 <body onload="year(),country_check()">
-	<h2>Hello Kirkwood graduates</h2>
-	<h3>Survey</h3>
+	
+	
+	<video autoplay muted loop id="myVideo">
+  	<source src="pic/banner.mp4" type="video/mp4">
+	</video>
 
-	<form method="POST" action="php/create_account.php"><!--To Complete by the PHP builder-->
-		<p>Please provide the following informations</p>
+	<header>
+		<a href="https://www.kirkwood.edu/" target="_blank"><img src="pic/kirkwood_logo.png" class="logo"></a>
+		<a href="https://www.youtube.com/user/KirkwoodCommCollege" target="_blank" > <img src="pic/YouTube_logo.png" class="social" name="Youtube" onmouseover="hover(this);" onmouseout="unhover(this);"></a>
+		<a href="https://www.linkedin.com/school/kirkwood-community-college/" target="_blank"><img src="pic/LinkedIn_logo.png" class="social" name="Linkedin" onmouseover="hover(this);" onmouseout="unhover(this);"></a>
+		<a href="https://twitter.com/kirkwoodcc" target="_blank"><img src="pic/Twitter_logo.png" class="social" name="Twitter" onmouseover="hover(this);" onmouseout="unhover(this);"></a>
+		<a href="https://www.instagram.com/kirkwoodlife/" target="_blank"><img src="pic/Instagram_logo.png" class="social" name="Instagram"onmouseover="hover(this);" onmouseout="unhover(this);"></a>
+		<a href="https://www.facebook.com/kirkwoodcommunitycollege" target="_blank"><img src="pic/Facebook_logo.png" class="social" name="Facebook" onmouseover="hover(this);" onmouseout="unhover(this);"></a>
+	<a href="#form" class="btn">Start The Survey</a>
+	<h1>Kirkwood After Graduation <br>Survey</h1>
+	<h4>This survey is made for Kirkwood graduated student to follow their professional progress.<br>
+All the information received from this survey help us to improve our educational system so we can help our student to start their professional carrier</h4>
+	
 
+	</header>
+
+<article id="form">
+	
+	<form method="" action="" id="msform"><!--To Complete by the PHP builder--><!--Don't change the form ID!-->
+		
+
+  <ul id="progressbar">
+    <li class="active">Graduation Information</li>
+    <li>Employment Information</li>
+    <li>Location</li>
+  </ul>
+		
+		<fieldset>
+		<h2 class="fs-title">Graduation Information</h2>
 		<label>Primary Program</label><!--Porgram_id options-->
-		<select name="program_id">
+		<select name="program_id" id="prog_select">
+			<option>Select Option</option>
 			<option>Accounting</option>
 			<option>Administrative Management</option>
 			<option>Apparel Merchandising</option>
@@ -38,12 +69,18 @@
 		<br>
 		<label>Continuing Education</label><!--Continuing Education options-->
 		<br>
-		<p><input type="radio" value="true"name="continue_edu"><b>Yes</b>, I have continued my education since I left Kirkwood.</p>
-		<p><input type="radio" value="false"name="continue_edu" checked=""><b>No</b>, I have continued my education since I left Kirkwood.</p>
-		<br>
-
+		<select name="continue_edu" id="edu_select">
+			<option>Select Option</option>
+			<option><b>Yes</b>, I have continued my education since I left Kirkwood</option>
+			<option><b>No</b>, I didn't continued my education since I left Kirkwood</option>
+		</select>
+		
+    <input type="button" name="1" class="next action-button" value="Next" />
+	</fieldset>
+	<fieldset>
+		<h2 class="fs-title">Employment Information</h2>
 		<label>Employment Position</label><!--Employment Position-->	
-		<input type="text" name="employment_position" required="">
+		<input type="text" name="employment_position" placeholder="Employment Position" required="">
 		<br>
 
 		<label>Salary Range</label><!--Salary Range options-->
@@ -59,9 +96,18 @@
 		<br>
 
 		<label>Employer Name</label><!--Employer Name-->
+<<<<<<< HEAD
 		<input type="text" name="employer_name" required="">	
 		<br>
 
+=======
+		<input type="text" name="employer_name" placeholder="Employer Name" required="">
+		<input type="button" name="previous" class="previous action-button" value="Previous" />
+    <input type="button" name="3" class="next action-button" value="Next" />	
+		</fieldset>
+		<fieldset>
+		<h2 class="fs-title">Location</h2>
+>>>>>>> 9e30b084c47a812f084b1aa0053e7586fb5e2884
 		<select name="country" id="country" onchange="country_check()""><!--graduates country-->
 		<option value="AFG">Afghanistan</option>
 		<option value="ALA">Åland Islands</option>
@@ -316,6 +362,18 @@
 	<div id="location"><!--graduates city&zip-->
 		
 	</div>
-	<input type="submit" name="submit">
+	<input type="button" name="previous" class="previous action-button" value="Previous" />
+    <input type="submit" name="submit" class="submit action-button" value="Submit" />
+	</fieldset>
+	</form>
+</article>
+	
 </body>
 </html>
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+
+  
+
+    <script src="js/index.js"></script>
