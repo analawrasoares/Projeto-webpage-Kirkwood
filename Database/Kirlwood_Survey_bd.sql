@@ -67,14 +67,13 @@ CREATE TABLE Graduate (
                 UNIQUE (k_number)
 );
 CREATE TABLE Graduate_backUp (
-                graduate_id INT AUTO_INCREMENT NOT NULL,
+                graduate_id INT NOT NULL,
                 form_id INT NOT NULL,
                 k_number VARCHAR(8) NOT NULL,
                 first_name VARCHAR(25) NOT NULL,
                 middle_name VARCHAR(25) NOT NULL,
                 last_name VARCHAR(25) NOT NULL,
-                email VARCHAR(50) NOT NULL,
-                UNIQUE (k_number)
+                email VARCHAR(50) NOT NULL
 );
 CREATE TABLE graduate_table_update_info (
 				change_id int AUTO_INCREMENT PRIMARY KEY,
