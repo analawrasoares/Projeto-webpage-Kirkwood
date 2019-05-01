@@ -67,7 +67,7 @@ CREATE TABLE Graduate (
                 UNIQUE (k_number)
 );
 CREATE TABLE Graduate_backUp (
-                graduate_id INT NOT NULL,
+                graduate_id INT NULL,
                 form_id INT NOT NULL,
                 k_number VARCHAR(8) NOT NULL,
                 first_name VARCHAR(25) NOT NULL,
