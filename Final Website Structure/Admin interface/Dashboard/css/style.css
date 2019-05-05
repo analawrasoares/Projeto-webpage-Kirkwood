@@ -283,3 +283,7 @@
  .dropdown:hover .dropbtn {
     background-color: #4786ed;
 }
+a{
+     text-decoration: none;
+     color: black;
+}

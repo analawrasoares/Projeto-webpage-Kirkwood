@@ -35,8 +35,10 @@
             <br>Dashboard</button>
         <button class="tablinks" onclick="div_flip(event,'statistics')"><img src="pic/stat_logo.png">
             <br>Statistics</button>
-        <button class="tablinks" onclick="div_flip(event,'email_statue')"><img src="pic/email_logo.png">
-            <br>Emails Statue</button>
+        <a href="Email_sender.html"><button class="tablinks"><img src="pic/email_logo.png"><!-- Important ! change the extension of the email_sender page here!!-->
+            <br>Emails Statue</button></a>
+        <button class="tablinks" onclick="div_flip(event,'csv_import')"><img src="pic/csv_import.png">
+            <br>Import</button>
     </div>
 
     <div class="container">
@@ -45,7 +47,7 @@
             <div class="dash_container">
                 <h1>Welcome To The Survey Manger</h1>
                 <div>
-                    <a onclick="div_flip(event,'email_statue')" title="See The Survey Statue">
+                    <a href="Email_sender.html" title="See The Survey Statue"> <!-- Important ! change the extension of the email_sender page here!!-->
                         <div class="circle_container">
                             <svg viewbox="0 0 36 36" class="circular-chart blue">
                         <path class="circle-bg" d="M18 2.0845
@@ -90,8 +92,10 @@
             </div>
         </div>
 
+<!-- To be deleted and replaced in the email_sender page
+
         <div id="statistics" class="tabcontent" style="display: none;">
-            <!------ statistic going to present here--->
+            <!--  statistic going to present here
             <div id="map">
                 <div id="data"></div>
                 <div id="googleMap" style="width:100%;height:400px;"></div>
@@ -99,7 +103,7 @@
         </div>
         <div id="email_statue" class="tabcontent" style="display: none;">
 
-            <!--********************************************************-->
+            ********************************************************
             <div class="tab_s">
                 <button class="tablinks_s active_s" onclick="div_flip_1(event,'in_progress')">In Progress</button>
                 <button class="tablinks_s" onclick="div_flip_1(event,'done')">Done</button>
@@ -179,9 +183,63 @@
                     </table>
                 </div>
             </div>
-            <!--****************************************************-->
+            
         </div>
 
+End of delete-->
+
+    <!--Import section-->
+    <div  class="tabcontent_s">
+                <div>
+                    <button class="btn">Import Csv</button>
+                    <button class="btn">Undo Import</button>
+                </div>
+
+                <div class="table">
+                    <table cellspacing="0">
+                        <tr>
+                            <th>
+                                <input type="checkbox" onclick="select_all(this)" alt="Select All">
+                            </th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Graduation Year</th>
+                            <th>Survey Statue</th>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>Jane Doe</td>
+                            <td>jane.doe@foo.com</td>
+                            <td>2015</td>
+                            <td>Sent</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>Jane Doe</td>
+                            <td>jane.doe@foo.com</td>
+                            <td>2015</td>
+                            <td>Sent</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>Jane Doe</td>
+                            <td>jane.doe@foo.com</td>
+                            <td>2015</td>
+                            <td>Sent</td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+<!--End of Import section-->
     </div>
 
 </body>
